@@ -4,8 +4,7 @@ import signupImg from '../../assets/sign-up.jpg'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 
-function Signup() {
-    // const navigate = useNavigate();
+function Signup() {     
     const [btnDisable, setBtnDisable] = useState(false)
     const [creds, setCreds] = useState({ email: "", username: "", password: "", phNumber: "" })
     const onChange = (e) => {
@@ -65,4 +64,4 @@ function Signup() {
     )
 }
 
-export default Signup
+export default Signup;

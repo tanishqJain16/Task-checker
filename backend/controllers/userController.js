@@ -1,5 +1,5 @@
-const { mysql_pool } = require("../db");
-require("dotenv").config();
+const { mysql_pool } = require("../db");            
+require("dotenv").config();                         
 
 const currentUser = async (req, res) => {
 	mysql_pool.getConnection(function (err, connection) {
@@ -38,6 +38,86 @@ const currentUser = async (req, res) => {
 	});
 };
 
-module.exports = {
+const fetchTasks = async (req, res) => {
+    mysql_pool.getConnection(function (err, connection) {
+        if (err) {
+            console.log(" Error getting mysql_pool connection: " + err);
+            res.status(500).send({ message: "try again" });
+            return;
+        }
+        try {
+            const email = req.email.email;
+            connection.query(
+                `SELECT * FROM tasks WHERE email = ?`,
+                [email],
+                function (err, result) {
+                    if (err) {
+                        res.status(400).send({
+                            message: "no tasks found",
+                            success: false,
+                        });
+                        return;
+                    } else {
+                        res.status(200).send({
+                            message: "tasks found",
+                            success: true,
+                            tasks: result,
+                        });
+                        return;
+                    }
+                }
+            );
+        } catch (err) {
+            res.status(500).send(err);
+			return;
+		}
+		connection.release();
+	});
+};
+
+const addTask = async (req, res) => {
+    mysql_pool.getConnection(function (err, connection) {
+        if (err) {
+            console.log(" Error getting mysql_pool connection: " + err);
+            res.status(500).send({ message: "try again" });
+            return;
+        }
+        try {
+            const email = req.email.email;
+            const task = req.body.task;
+            if (!task) {
+                res.status(400).send({ message: "task not recieved!", success: false });
+                return;
+            }
+            connection.query(
+                `INSERT INTO tasks (email,task) VALUES (?,?)`,
+                [email, task],
+                function (err, result) {            
+                    if (err) {
+                        res.status(400).send({
+                            message: "task not added",
+                            success: false,
+                        });
+                        return;
+                    } else {
+                        res.status(200).send({
+                            message: "task added",
+                            success: true,
+                        });
+                        return;
+                    }
+                }
+            );
+        } catch (err) {
+            res.status(500).send(err);
+			return;
+		}
+		connection.release();
+	});
+};
+
+module.exports = {              
     currentUser,
+    fetchTasks,
+    addTask,
 };
