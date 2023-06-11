@@ -1,46 +1,32 @@
-.card{
-    width: 80vw;
-    height: 80vh;
-    margin: 0 auto;
-    margin-top: 100px;
+.card2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.card2>.signupForm {
+    width: 30rem;
+    height: fit-content;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
-    /* padding: 20px; */
-    text-align: center;
-    display: flex;
-}
-
-.card>.signupImg{
-    width: 100vw;
-    height: 100%;
-    background-color: #000;
-    border-radius: 10px 0 0 10px;
-    overflow: hidden;
-}
-
-.card>.signupImg>img{
-    height: 80vh;
-    border-radius: 10px 0 0 10px;
-}
-
-.card>.signupForm{
-    width: 100%;
-    height: 100%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    margin: 0 1rem;
 }
 
-.card>.signupForm>h1{
+
+.card2>.signupForm>h1 {
     font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 10px;
 }
 
-.card>.signupForm>div{
+.card2>.signupForm>div {
     width: 100%;
     height: 100%;
     display: flex;
@@ -49,7 +35,7 @@
     margin-top: 2rem;
 }
 
-.card>.signupForm>div>label{
+.card2>.signupForm>div>label {
     width: 100%;
     height: 50px;
     display: flex;
@@ -59,7 +45,7 @@
     font-weight: 600;
 }
 
-.card>.signupForm>div>input{
+.card2>.signupForm>div>input {
     width: 100%;
     height: 35px;
     border: 1px solid #ccc;
@@ -71,16 +57,16 @@
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-.card>.signupForm>div>button{
+.card2>.signupForm>div>button {
     width: 100%;
     height: 40px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(231, 158, 2);
+    background-color: rgb(254, 38, 74);
     color: white;
     font-size: 1rem;
     font-weight: 600;
@@ -88,51 +74,25 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.card>.signupForm>div>button:disabled{
+.card2>.signupForm>div>button:hover {
+    background-color: #9d4444;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    color: #000;
+}
+
+.card2>.signupForm>div>button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
 
 
-.alreadyamember{
+.alreadyamember {
     margin-top: 20px;
     font-size: 1rem;
 }
 
-.alreadyamember>a{
+.alreadyamember>a {
     text-decoration: none;
-    color:  rgb(231, 158, 2);
+    color: rgb(254, 38, 74);
     font-weight: 600;
-}
-
-@media only screen and (max-width: 760px){
-    
-    .card>.signupImg{
-        display: none;
-    }
-    .card>.signupForm{
-        align-items: center;
-    }
-    .card>.signupForm>h1{
-        font-size: 2rem;
-    }
-    .card>.signupForm>div>label{
-        font-size: 0.8rem;
-    }
-    .card>.signupForm>div>input{
-        height: 30px;
-    }
-    .card>.signupForm>div>button{
-        height: 35px;
-        font-size: 0.8rem;
-    }
-    .extraDetails > .rememberMecheck > label {
-        font-size: 0.7rem;
-    }
-    .extraDetails > .forgotPassword>a {
-        font-size: 0.7rem;
-    }
-    .alreadyamember{
-        font-size: 0.8rem;
-    }
 }

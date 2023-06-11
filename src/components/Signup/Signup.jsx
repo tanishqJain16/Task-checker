@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './Signup.css'
-import signupImg from '../../assets/sign-up.jpg'
+// import signupImg from '../../assets/sign-up.jpg'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 
@@ -43,10 +43,7 @@ function Signup() {
     }
 
     return (
-        <div className="card">
-            <div className="signupImg">
-                <img src={signupImg} alt="" />
-            </div>
+        <div className="card2">
             <div className="signupForm">
                 <h1>Sign Up</h1>
                 <div>
