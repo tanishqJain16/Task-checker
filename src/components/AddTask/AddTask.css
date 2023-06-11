@@ -1,0 +1,54 @@
+.addtask{
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    gap: 2rem;
+}
+
+.addtask>.addTaskField>input{
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.addtask>.addTaskField>input:focus{
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.addtask>button{
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color:rgb(254, 38, 74);;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.addtask>button:hover{
+    background-color: #9d4444;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    color: #000;
+}
+
+.addtask>button:disabled{
+    background-color: gray;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    color: #fff;
+    cursor: not-allowed;
+}
+
+@media only screen and (max-width:512px){
+    .addtask{
+        flex-direction: column;
+    }
+}
