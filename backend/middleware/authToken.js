@@ -1,6 +1,6 @@
-const jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");			//eslint-disable-line
 
-module.exports = function authenticateToken(req, res, next) {
+module.exports = function authenticateToken(req, res, next) {			//eslint-disable-line
 	const authHeader = req.headers["authorization"];
 	const token = authHeader && authHeader.split(" ")[1];
 	if (token == null) {

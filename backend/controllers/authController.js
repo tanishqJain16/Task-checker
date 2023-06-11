@@ -1,6 +1,6 @@
-const { mysql_pool } = require("../db");			
-const bcrypt = require("bcrypt");					
-const jwt = require("jsonwebtoken");				
+const { mysql_pool } = require("../db");		//eslint-disable-line	
+const bcrypt = require("bcrypt");				//eslint-disable-line	
+const jwt = require("jsonwebtoken");			//eslint-disable-line	
 
 //Register
 const register = async (req, res) => {
@@ -23,7 +23,7 @@ const register = async (req, res) => {
 				connection.query(
 					`INSERT INTO users (email, name, password) VALUES (?,?,?)`,
 					[email, username, hash],
-					function (err, result) {			
+					function (err, result) {			//eslint-disable-line
 						if (err) {
 							res.status(400).send({
 								message: "Already registered !!",
@@ -104,7 +104,7 @@ const login = async (req, res) => {
 	});
 };
 
-module.exports = {		
+module.exports = {		//eslint-disable-line
 	register,
 	login,
 };

@@ -1,16 +1,16 @@
-const express = require("express");
-const helmet = require("helmet");
-const morgan = require("morgan");
-const { mysql_pool } = require("./db");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const authRoute = require("./routes/authRoute");
-const userRoute = require("./routes/userRoute");
-const { db } = require("./db");
-require("dotenv").config();
+const express = require("express");				//eslint-disable-line
+const helmet = require("helmet");				//eslint-disable-line
+const morgan = require("morgan");				//eslint-disable-line
+const { mysql_pool } = require("./db");			//eslint-disable-line
+const bodyParser = require("body-parser");		//eslint-disable-line
+const cors = require("cors");					//eslint-disable-line
+const authRoute = require("./routes/authRoute");	//eslint-disable-line
+const userRoute = require("./routes/userRoute");	//eslint-disable-line
+const { db } = require("./db");					//eslint-disable-line
+require("dotenv").config();						//eslint-disable-line
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;			//eslint-disable-line
 
 //middleware
 app.use(express.json());

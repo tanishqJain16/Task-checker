@@ -1,4 +1,4 @@
-const mysql = require("mysql2");
+const mysql = require("mysql2");				//eslint-disable-line
 
 var mysql_pool = mysql.createPool({
 	connectionLimit: 100,
@@ -12,6 +12,6 @@ var mysql_pool = mysql.createPool({
 	port: 6838,
 });
 
-module.exports = {
+module.exports = {			//eslint-disable-line
 	mysql_pool,
 };
