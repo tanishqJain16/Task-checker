@@ -40,7 +40,7 @@ function AddTask() {
     return (
         <div className="addtask">
             <div className="addTaskField">
-                <input type="text" placeholder="Add Task" onChange={handleOnChange} />
+                <textarea rows={4} type="text" placeholder="Add Task" onChange={handleOnChange} />
             </div>
             <button className="addTaskBtn" onClick={handleAddTask} disabled={disable}>
                 Add Task

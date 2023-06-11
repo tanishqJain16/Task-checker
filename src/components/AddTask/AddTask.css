@@ -7,17 +7,18 @@
     gap: 2rem;
 }
 
-.addtask>.addTaskField>input{
+.addtask>.addTaskField>textarea{
     padding: 0.5rem 1rem;
-    border-radius: 50px;
+    border-radius: 20px;
     border: none;
     outline: none;
     font-size: 1.2rem;
     font-weight: 600;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    resize: none;
 }
 
-.addtask>.addTaskField>input:focus{
+.addtask>.addTaskField>textarea:focus{
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
@@ -27,7 +28,7 @@
     border: none;
     outline: none;
     cursor: pointer;
-    background-color:rgb(254, 38, 74);;
+    background-color:rgb(254, 38, 74);
     color: #fff;
     font-size: 1.2rem;
     font-weight: 600;
