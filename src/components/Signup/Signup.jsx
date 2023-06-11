@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './Signup.css'
-// import signupImg from '../../assets/sign-up.jpg'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 
@@ -32,12 +31,10 @@ function Signup() {
             localStorage.setItem("token", json.token);
             console.log(json.token)
             toast.success("Signup Successful");
-            // navigate("/home");
             setTimeout(() => {
                 window.location.href = "/";
             }, 500);
         } else {
-            // alert(json.message);
             toast.error(json.message);
         }
     }

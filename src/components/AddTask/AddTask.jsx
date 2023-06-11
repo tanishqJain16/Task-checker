@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./AddTask.css"
 import { toast } from "react-hot-toast";
-// import axios from "axios";
 
 function AddTask() {
     const [task, setTask] = useState("");
@@ -34,8 +33,6 @@ function AddTask() {
             setDisable(false);
         }
     }
-    // console.log(localStorage.getItem('token'))
-
 
     return (
         <div className="addtask">

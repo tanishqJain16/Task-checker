@@ -1,12 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-// import signupImg from '../../assets/sign-up.jpg'
 import './Login.css'
-// import Home from '../../pages/home/Home'
 import { toast } from 'react-hot-toast'
 
 function Login() {
-    // const navigate=useNavigate();
     const [creds, setCreds] = useState({ email: "", password: "" })
     const [btnDisable, setBtnDisable] = useState(false)
     const handleChange = (e) => {
@@ -33,7 +30,6 @@ function Login() {
             localStorage.setItem("token", json.token);
             console.log(json.token)
             toast.success("Login Successful");
-            // navigate("/home");
             setTimeout(() => {
                 window.location.href = "/";
             }, 500);

@@ -11,7 +11,6 @@ import loadingGif from "../../assets/loading.gif"
 function Home() {
     const [currentUser, setCurrentUser] = useState({ email: "", name: "", totaltasks: 0 });
     const [tasks, setTasks] = useState([]);
-    // const [tasksId, setTaskId] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const fetchTasks = () => {
@@ -23,18 +22,16 @@ function Home() {
             },
         }).then((response) => {
             if (response.data.success) {
-                // console.log(response.data.tasks)
                 setTasks(response.data.tasks)
                 setLoading(false);
-                // setTaskId(response.data.tasks.taskid)
             }
             else {
                 toast.error(response.message);
                 setLoading(false);
             }
-        }).catch((err) => {
+        }).catch((err) => {         // eslint-disable-line
             setLoading(false);
-            console.log(err)
+            toast.error("Something went wrong ! please try again later");
         })
     }
 
@@ -46,14 +43,13 @@ function Home() {
             },
         }).then((response) => {
             if (response.data.success) {
-                // console.log(response.data)
                 setCurrentUser({ name: response.data.name, email: response.data.email, totaltasks: response.data.totaltasks })
             }
             else {
                 alert(response.message);
             }
-        }).catch((err) => {
-            console.log(err)
+        }).catch((err) => {     // eslint-disable-line
+            toast.error("Something went wrong ! please try again later");
         })
 
     }
