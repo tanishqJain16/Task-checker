@@ -8,11 +8,11 @@ import AddTask from "../../components/AddTask/AddTask";
 import { toast } from "react-hot-toast";
 
 function Home() {
-    const [currentUser, setCurrentUser] = useState({ email: "", name: "" });
+    const [currentUser, setCurrentUser] = useState({ email: "", name: "", totaltasks: 0 });
     const [tasks, setTasks] = useState([]);
     // const [tasksId, setTaskId] = useState([]);
 
-    useEffect(() => {
+    const fetchTasks = () => {
         axios.get("https://task-tracking.azurewebsites.net/user/fetchtask", {
             headers: {
                 "Content-Type": "application/json",
@@ -30,9 +30,7 @@ function Home() {
         }).catch((err) => {
             console.log(err)
         })
-    }, [])
-
-
+    }
 
     const getCurrentUser = () => {
         axios.get("https://task-tracking.azurewebsites.net/user/currentuser", {
@@ -43,7 +41,7 @@ function Home() {
         }).then((response) => {
             if (response.data.success) {
                 // console.log(response.data)
-                setCurrentUser({ name: response.data.name, email: response.data.email })
+                setCurrentUser({ name: response.data.name, email: response.data.email, totaltasks: response.data.totaltasks })
             }
             else {
                 alert(response.message);
@@ -56,6 +54,7 @@ function Home() {
 
     useEffect(() => {
         getCurrentUser();
+        fetchTasks();
     }, [])
 
     return (
@@ -63,7 +62,9 @@ function Home() {
             <Navbar />
             <h1 className="mainHeading">Welcome, {currentUser.name}</h1>
             <AddTask className="addTaskComponent" />
+            <div className="totalTasks"><h2>Total Tasks: {currentUser.totaltasks}</h2></div>
             <div className="cards">
+                {!tasks.length && <h1 className="noTask">No Tasks Scheduled</h1>}
                 {tasks.map((task, key) => {
                     return <TaskCard task={task.task} id={task.taskid} key={key} />
                 })}

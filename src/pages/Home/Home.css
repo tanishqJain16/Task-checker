@@ -17,10 +17,25 @@
     margin-bottom: 2rem;
 }
 
+.home>.cards>.noTask{
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(254, 38, 74);
+}
+
 .home>.mainHeading{
     margin-top: 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: rgb(255, 14, 54);
     padding-top: 11vh;
     margin-bottom: 2rem;
+}
+
+.home>.totalTasks>h2{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(255, 14, 54);
+    text-align: end;
+    width: 100vw;
+    margin-right: 1rem;
 }

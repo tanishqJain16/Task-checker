@@ -1,5 +1,5 @@
-const { mysql_pool } = require("../db");            
-require("dotenv").config();                         
+const { mysql_pool } = require("../db");            //eslint-disable-line
+require("dotenv").config();                         //eslint-disable-line
 
 const currentUser = async (req, res) => {
 	mysql_pool.getConnection(function (err, connection) {
@@ -25,6 +25,7 @@ const currentUser = async (req, res) => {
                             success: true,
                             email: result[0].email,
                             name: result[0].name,
+                            totaltasks: result[0].totaltasks,
                         });
                         return;
                     }
@@ -92,7 +93,7 @@ const addTask = async (req, res) => {
             connection.query(
                 `INSERT INTO tasks (email,task) VALUES (?,?)`,
                 [email, task],
-                function (err, result) {            
+                function (err, result) {      //eslint-disable-line       
                     if (err) {
                         res.status(400).send({
                             message: "task not added",
@@ -104,6 +105,16 @@ const addTask = async (req, res) => {
                             message: "task added",
                             success: true,
                         });
+                        return;
+                    }
+                }
+            );
+            connection.query(
+                `UPDATE users SET totaltasks = totaltasks + 1 WHERE email = ?`,
+                [email],
+                function (err, result) {      //eslint-disable-line
+                    if (err) {
+                        console.log(err);
                         return;
                     }
                 }
@@ -133,7 +144,7 @@ const deleteTask = async (req, res) => {
             connection.query(
                 `DELETE FROM tasks WHERE email = ? AND taskid = ?`,
                 [email, taskid],
-                function (err, result) {
+                function (err, result) {                    //eslint-disable-line
                     if (err) {
                         res.status(400).send({
                             message: "task not deleted",
@@ -145,6 +156,16 @@ const deleteTask = async (req, res) => {
                             message: "task deleted",
                             success: true,
                         });
+                        return;
+                    }
+                }
+            );
+            connection.query(
+                `UPDATE users SET totaltasks = totaltasks - 1 WHERE email = ?`,
+                [email],
+                function (err, result) {                    //eslint-disable-line
+                    if (err) {
+                        console.log(err);
                         return;
                     }
                 }
@@ -175,7 +196,7 @@ const updateTask = async (req, res) => {
             connection.query(
                 `UPDATE tasks SET task = ? WHERE email = ? AND taskid = ?`,
                 [task, email, taskid],
-                function (err, result) {
+                function (err, result) {                        //eslint-disable-line
                     if (err) {
                         res.status(400).send({
                             message: "task not updated",
@@ -199,7 +220,7 @@ const updateTask = async (req, res) => {
 	});
 };
 
-module.exports = {              
+module.exports = {                      //eslint-disable-line
     currentUser,
     fetchTasks,
     addTask,

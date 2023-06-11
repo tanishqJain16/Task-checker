@@ -72,8 +72,7 @@ function TaskCard(props) {
                     Update
                 </button>
             </Modal>
-            <div className="taskCardP">
-                <p>Task Id: {props.id}</p>     {/* eslint-disable-line */}
+            <div className="taskCardP">   {/* eslint-disable-line */}
                 <div className="taskCardIcons">
                     <EditIcon onClick={onOpenModal} />
                     <Trash onClick={handleDelete} />
