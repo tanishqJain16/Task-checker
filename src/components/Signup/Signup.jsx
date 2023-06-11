@@ -4,7 +4,7 @@ import signupImg from '../../assets/sign-up.jpg'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 
-function Signup() {     
+function Signup() {
     const [btnDisable, setBtnDisable] = useState(false)
     const [creds, setCreds] = useState({ email: "", username: "", password: "", phNumber: "" })
     const onChange = (e) => {
@@ -14,7 +14,7 @@ function Signup() {
         setBtnDisable(true);
         e.preventDefault();
         const { email, username, password } = creds;
-        const response = await fetch("http://localhost:5000/auth/register", {
+        const response = await fetch("https://task-tracking.azurewebsites.net/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

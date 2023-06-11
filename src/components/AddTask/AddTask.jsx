@@ -15,7 +15,7 @@ function AddTask() {
     const handleAddTask = async (e) => {
         e.preventDefault();
         setDisable(true);
-        const response = await fetch("http://localhost:5000/user/addtask", {
+        const response = await fetch("https://task-tracking.azurewebsites.net/user/addtask", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

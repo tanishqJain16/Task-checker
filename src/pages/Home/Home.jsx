@@ -13,7 +13,7 @@ function Home() {
     // const [tasksId, setTaskId] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/user/fetchtask", {
+        axios.get("https://task-tracking.azurewebsites.net/user/fetchtask", {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -35,7 +35,7 @@ function Home() {
 
 
     const getCurrentUser = () => {
-        axios.get("http://localhost:5000/user/currentuser", {
+        axios.get("https://task-tracking.azurewebsites.net/user/currentuser", {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -60,11 +60,11 @@ function Home() {
 
     return (
         <div className="home">
-            <Navbar/>
+            <Navbar />
             <h1 className="mainHeading">Welcome, {currentUser.name}</h1>
-            <AddTask className="addTaskComponent"/>
+            <AddTask className="addTaskComponent" />
             <div className="cards">
-                {tasks.map((task,key) => {
+                {tasks.map((task, key) => {
                     return <TaskCard task={task.task} id={task.taskid} key={key} />
                 })}
             </div>

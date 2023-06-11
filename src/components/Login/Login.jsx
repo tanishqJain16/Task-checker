@@ -16,7 +16,7 @@ function Login() {
         e.preventDefault();
         setBtnDisable(true);
         const { email, password } = creds;
-        const response = await fetch("http://localhost:5000/auth/login", {
+        const response = await fetch("https://task-tracking.azurewebsites.net/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -37,7 +37,7 @@ function Login() {
             setTimeout(() => {
                 window.location.href = "/";
             }, 500);
-            
+
         } else {
             toast.error(json.message);
         }
@@ -52,9 +52,9 @@ function Login() {
                 <h1>Sign In</h1>
                 <div>
                     <label className='email' htmlFor="email">EMAIL</label>
-                    <input type="text" name="email" id="email" placeholder="Enter your email" onChange={handleChange}/>
+                    <input type="text" name="email" id="email" placeholder="Enter your email" onChange={handleChange} />
                     <label className='password' htmlFor="password">PASSWORD</label>
-                    <input type="password" name="password" id="password" placeholder="Enter your password" onChange={handleChange}/>
+                    <input type="password" name="password" id="password" placeholder="Enter your password" onChange={handleChange} />
                     <button className="signinbtn" disabled={btnDisable} onClick={handlesubmit}>SignIn</button>
                     {/* <div className="extraDetails">
                         <div className="rememberMecheck">
